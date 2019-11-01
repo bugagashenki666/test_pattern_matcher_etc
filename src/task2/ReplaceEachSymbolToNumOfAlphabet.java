@@ -80,7 +80,7 @@ public class ReplaceEachSymbolToNumOfAlphabet {
                 "Fuck your little brother's homie from around the way\n" +
                 "And fuck Violent J!";
 
-        String strs[] = input.split("\n");
+        String[] strs = input.split("\n");
 
         for (String s : strs
         ) {
@@ -88,19 +88,21 @@ public class ReplaceEachSymbolToNumOfAlphabet {
                 Formatter f = new Formatter();
                 f.format("%3c", s.charAt(i));
                 System.out.print(f);
+                f.close();
             }
             System.out.println();
             for (int i = 0; i < s.length(); i++) {
-                if ((int) ((s.charAt(i) + "").toLowerCase().charAt(0)) - 96 > 0) {
+                char cc = ((s.charAt(i) + "").toLowerCase().charAt(0));
+                if ((int)  cc> 96) {
                     Formatter f = new Formatter();
-                    f.format("%3d", (int) ((s.charAt(i) + "").toLowerCase().charAt(0)) - 96);
+                    f.format("%3d", (int) cc - 96);
                     System.out.print(f);
-                }
-                else
-                {
+                    f.close();
+                } else {
                     Formatter f = new Formatter();
-                    f.format("%3c",  s.charAt(i));
+                    f.format("%3c", s.charAt(i));
                     System.out.print(f);
+                    f.close();
                 }
             }
             System.out.println();
